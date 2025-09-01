@@ -2,10 +2,14 @@
     width: 100%;
 }
 
-.buttons {
+.main-view {
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+.buttons {
+    position: absolute;
 }
 
 .qr-button {

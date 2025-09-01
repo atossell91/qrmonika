@@ -4,28 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <!-- <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script> -->
+    <script src="html5qrcode.js" type="text/javascript"></script>
     <script src="main.js" type="module"></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="modal.css">
 </head>
 <body>
-    <div class="buttons">
+    <div class="main-view">
         <div class="info-modal" id="info-modal">
-            <div class="modal-header">
-                <button class="modal-close-button" id="modal-close-button">X</button>
-            </div>
-            <div class="modal-field" id="modal-item-name"></div>
-            <div class="modal-field" id="modal-item-id"></div>
-            <div class="modal-num-spinner">
-                <button id="modal-num-spinner-minus" class="modal-num-spinner-btn">-</button>
-                <input id="modal-num-spinner-input" class="modal-num-spinner-input" type="text"/>
-                <button id="modal-num-spinner-plus" class="modal-num-spinner-btn">+</button>
+            <div class="modal-body">
+                <div class="modal-header">
+                    <button class="modal-close-button" id="modal-close-button">X</button>
+                </div>
+                <div class="modal-field">
+                    <div class="modal-tag">Item Name:</div>
+                    <div class="modal-label" id="modal-item-name">Rubber Gloves</div>
+                </div>
+                <div class="modal-field">
+                    <div class="modal-tag">Item ID:</div>
+                    <div class="modal-label" id="modal-item-id">668</div>
+                </div>
+                <div class="modal-num-spinner">
+                    <button id="modal-num-spinner-minus" class="modal-num-spinner-btn left-crescent">-</button>
+                    <input type="text" inputmode="numeric" pattern="[0-9]*" id="modal-num-spinner-input" class="modal-num-spinner-input"/>
+                    <button id="modal-num-spinner-plus" class="modal-num-spinner-btn right-crescent">+</button>
+                </div>
             </div>
         </div>
-        <button class="qr-button" id="camera-button">Enable/Disable Scanner</button>
-        <button class="qr-button" id="modal-button">Display Modal</button>
+        <div id="cam-view" class="cam-view"></div>
+        <span class="buttons">
+            <button class="qr-button" id="camera-button">Enable/Disable Scanner</button>
+            <button class="qr-button" id="modal-button">Display Modal</button>
+        </span>
     </div>
-    <div id="cam-view" class="cam-view"></div>
 </body>
 </html>

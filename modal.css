@@ -9,9 +9,56 @@
     border-radius: 1rem;
 }
 
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.modal-body > * {
+    margin: 1rem 0rem 1rem 0rem;
+}
+
+.modal-tag {
+    font-size: smaller;
+}
+
+.modal-label {
+    background-color: aliceblue;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);   /* darker bottom/right */
+  /*inset -2px -2px 5px rgba(255, 255, 255, 0.7); /* lighter top/left */
+}
+
 .modal-num-spinner {
     display: flex;
     flex-direction: row;
+    width: auto;
+    justify-content: center;
+}
+
+.modal-num-spinner-btn {
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    width: 5rem;
+    font-size: 3rem;
+}
+
+.left-crescent {
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+}
+
+.right-crescent {
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+
+.modal-num-spinner-input {
+    font-size: 3rem;
+    width: 10rem;
 }
 
 .modal-header {
