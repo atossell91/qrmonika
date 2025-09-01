@@ -1,0 +1,28 @@
+.info-modal {
+    display: none;
+    position: absolute;
+    z-index: 100000;
+    width: 80vw;
+    height: 80vh;
+    background-color: orange;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.modal-num-spinner {
+    display: flex;
+    flex-direction: row;
+}
+
+.modal-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
+.modal-close-button {
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    color: black;
+}
