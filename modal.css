@@ -16,6 +16,10 @@
     height: 100%;
 }
 
+.modal-title {
+    text-align: center;
+}
+
 .modal-body > * {
     margin: 1rem 0rem 1rem 0rem;
 }
