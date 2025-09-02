@@ -13,8 +13,11 @@ class App {
         document.addEventListener("visibilitychange", ()=>{ this.handleVisibleChanged( document.visibilityState ); });
     }
 
-    onScanSuccess = () => {
-        window.alert("Joscelyn");
+    onScanSuccess = (value) => {
+        // this will keep scanning rapidly. Deal with it!
+        console.log(value);
+        const object = JSON.parse(value);
+        this.modal.show();
     }
 
     handleVisibleChanged(visibilityState) {

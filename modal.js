@@ -3,8 +3,10 @@ class modal {
         this.app = app;
         this.ModalElem = document.getElementById("info-modal");
         this.ModalCloseButton = document.getElementById("modal-close-button");
+        this.ModalSubmitButton = document.getElementById("modal-submit-btn");
 
         this.ModalCloseButton.addEventListener("click", ()=>{ this.hide(); });
+        this.ModalSubmitButton.addEventListener("click", ()=>{this.hide(); })
     }
 
     show() {

@@ -2,10 +2,11 @@ class QRScanner {
     constructor(onScanSuccess) {
         this.html5Qrcode = new Html5Qrcode("cam-view");
         this.scanSuccessFunc = onScanSuccess
+        this.scannerBox = 500;
     }
 
     startScan() {
-        const config = { fps: 10, qrbox: { width: 250, height: 250 }};
+        const config = { fps: 10, qrbox: { width: this.scannerBox, height: this.scannerBox }};
 
         this.html5Qrcode.start({ facingMode: "environment"}, config, this.scanSuccessFunc);
     }
