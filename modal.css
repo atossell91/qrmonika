@@ -13,6 +13,7 @@
     display: flex;
     flex-direction: column;
     align-content: center;
+    height: 100%;
 }
 
 .modal-body > * {
@@ -27,8 +28,7 @@
     background-color: aliceblue;
     padding: 0.5rem;
     border-radius: 0.5rem;
-    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);   /* darker bottom/right */
-  /*inset -2px -2px 5px rgba(255, 255, 255, 0.7); /* lighter top/left */
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .modal-num-spinner {
@@ -65,6 +65,22 @@
     display: flex;
     flex-direction: row;
     justify-content: right;
+}
+
+.modal-footer {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    align-items: center;
+}
+
+.modal-footer > * {
+    margin: 1rem 0 1rem 0;
+}
+
+.submit-button {
+    width: min-content;
+    font-size: 3rem;
 }
 
 .modal-close-button {
