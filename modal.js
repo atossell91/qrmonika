@@ -4,9 +4,11 @@ class modal {
         this.ModalElem = document.getElementById("info-modal");
         this.ModalCloseButton = document.getElementById("modal-close-button");
         this.ModalSubmitButton = document.getElementById("modal-submit-btn");
+        this.ModalItemName = document.getElementById("modal-item-name");
+        this.ModalItemId = document.getElementById("modal-item-id");
 
         this.ModalCloseButton.addEventListener("click", ()=>{ this.hide(); });
-        this.ModalSubmitButton.addEventListener("click", ()=>{this.hide(); })
+        this.ModalSubmitButton.addEventListener("click", ()=>{ this.hide(); })
     }
 
     show() {
@@ -15,6 +17,14 @@ class modal {
 
     hide() {
         this.ModalElem.style.display = "none";
+    }
+
+    setItemName(name) {
+        this.ModalItemName.innerText = name;
+    }
+
+    setItemId(id) {
+        this.ModalItemId.innerText = id;
     }
 }
 

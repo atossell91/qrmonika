@@ -10,14 +10,28 @@ class App {
         this.index = new index(this);
         this.modal = new modal(this);
 
+        canScan = true;
+        scanTimeout = 1000; //milliseconds
+
         document.addEventListener("visibilitychange", ()=>{ this.handleVisibleChanged( document.visibilityState ); });
     }
 
     onScanSuccess = (value) => {
-        // this will keep scanning rapidly. Deal with it!
-        console.log(value);
+        if (!this.canScan) return;
+        this.canScan = false;
+
         const object = JSON.parse(value);
-        this.modal.show();
+        const id = object["Item ID"];
+        let name = "";
+        fetch("https://www.api.rms.corbli.com/getItemInfo?ItemID=" + id)
+        .then((response)=> response.json())
+        .then((object)=>{
+            name = object["name"];
+            this.modal.setItemName(name);
+            this.modal.show();
+        });
+
+        setTimeout(()=>{ this.canScan = true; }, this.scanTimeout)
     }
 
     handleVisibleChanged(visibilityState) {
