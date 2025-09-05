@@ -11,7 +11,7 @@ class App {
         this.modal = new modal(this);
 
         this.canScan = true;
-        scanTimeout = 1000; //milliseconds
+        this.scanTimeout = 1000; //milliseconds
 
         document.addEventListener("visibilitychange", ()=>{ this.handleVisibleChanged( document.visibilityState ); });
     }
@@ -23,10 +23,11 @@ class App {
         const object = JSON.parse(value);
         const id = object["Item ID"];
         let name = "";
-        fetch("https://www.api.rms.corbli.com/getItemInfo?ItemID=" + id)
+        fetch("https://rmsapi.corbli.com/getItemInfo?ItemID=" + id)
         .then((response)=> response.json())
         .then((object)=>{
             name = object["name"];
+            this.modal.setItemId(id);
             this.modal.setItemName(name);
             this.modal.show();
         });
