@@ -10,7 +10,7 @@ class App {
         this.index = new index(this);
         this.modal = new modal(this);
 
-        canScan = true;
+        this.canScan = true;
         scanTimeout = 1000; //milliseconds
 
         document.addEventListener("visibilitychange", ()=>{ this.handleVisibleChanged( document.visibilityState ); });
