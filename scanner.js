@@ -2,7 +2,7 @@ class QRScanner {
     constructor(onScanSuccess) {
         this.html5Qrcode = new Html5Qrcode("cam-view");
         this.scanSuccessFunc = onScanSuccess
-        this.scannerBox = 500;
+        this.scannerBox = 150;
     }
 
     startScan() {
