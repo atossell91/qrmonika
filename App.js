@@ -1,6 +1,7 @@
 import { QRScanner } from "./scanner.js"
 import { index } from "./index.js"
 import { modal } from "./modal.js";
+import { RemoteEndpoint } from "./RemoteEndpoint.js";
 
 class App {
     constructor() {
@@ -9,6 +10,8 @@ class App {
 
         this.index = new index(this);
         this.modal = new modal(this);
+
+        this.RmsEndpoint = new RemoteEndpoint("https://rmsapi.corbli.com");
 
         this.canScan = true;
         this.scanTimeout = 1000; //milliseconds
@@ -22,8 +25,11 @@ class App {
 
         const object = JSON.parse(value);
         const id = object["Item ID"];
+
+        console.log("SCANNED! ID is " + id);
+
         let name = "";
-        fetch("https://rmsapi.corbli.com/getItemInfo?ItemID=" + id)
+        this.RmsEndpoint.SendGET("/getItemInfo", { ItemID: id })
         .then((response)=> response.json())
         .then((object)=>{
             name = object["name"];
