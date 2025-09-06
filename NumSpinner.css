@@ -1,0 +1,30 @@
+.modal-num-spinner {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    justify-content: center;
+}
+
+.modal-num-spinner-btn {
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    width: 5rem;
+    font-size: 3rem;
+}
+
+.left-crescent {
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+}
+
+.right-crescent {
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+
+.modal-num-spinner-input {
+    font-size: 3rem;
+    width: 10rem;
+    text-align: center;
+}

@@ -1,3 +1,5 @@
+import { NumSpinner } from "./NumSpinner.js";
+
 class modal {
     constructor(app) {
         this.app = app;
@@ -6,6 +8,8 @@ class modal {
         this.ModalSubmitButton = document.getElementById("modal-submit-btn");
         this.ModalItemName = document.getElementById("modal-item-name");
         this.ModalItemId = document.getElementById("modal-item-id");
+
+        this.Spinner = new NumSpinner();
 
         this.ModalCloseButton.addEventListener("click", ()=>{ this.hide(); });
         this.ModalSubmitButton.addEventListener("click", ()=>{ this.hide(); })
@@ -17,6 +21,7 @@ class modal {
 
     hide() {
         this.ModalElem.style.display = "none";
+        this.Spinner.SetValue(0);
     }
 
     setItemName(name) {
