@@ -8,8 +8,11 @@ class modal {
         this.ModalSubmitButton = document.getElementById("modal-submit-btn");
         this.ModalItemName = document.getElementById("modal-item-name");
         this.ModalItemId = document.getElementById("modal-item-id");
+        this.ModalItemQuantity = document.getElementById("modal-item-quantity");
 
         this.setItemId(1);
+        this.setItemName("Nothing");
+        this.setItemQuantity(999);
 
         this.Spinner = new NumSpinner();
 
@@ -43,6 +46,10 @@ class modal {
 
     setItemId(id) {
         this.ModalItemId.innerText = id;
+    }
+
+    setItemQuantity(quantity)  {
+        this.ModalItemQuantity.innerText = quantity;
     }
 }
 
