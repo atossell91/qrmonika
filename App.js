@@ -17,6 +17,24 @@ class App {
         this.scanTimeout = 1000; //milliseconds
 
         document.addEventListener("visibilitychange", ()=>{ this.handleVisibleChanged( document.visibilityState ); });
+        document.addEventListener("modalSubmitted", (event)=>{ this.onModalSubmitted(event); });
+    }
+
+    onModalSubmitted = (event) => {
+        const id = event.detail["id"];
+        const quantity = event.detail["quantity"];
+
+        const data = {
+            ItemID:id,
+            OwnerID:1,
+            LocationID:1,
+            Quantity:quantity,
+            Type:1
+        }
+
+        console.log(data)
+
+        this.RmsEndpoint.SendPOST("/addTransaction", data);
     }
 
     onScanSuccess = (value) => {

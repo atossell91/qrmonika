@@ -9,10 +9,12 @@ class modal {
         this.ModalItemName = document.getElementById("modal-item-name");
         this.ModalItemId = document.getElementById("modal-item-id");
 
+        this.setItemId(1);
+
         this.Spinner = new NumSpinner();
 
         this.ModalCloseButton.addEventListener("click", ()=>{ this.hide(); });
-        this.ModalSubmitButton.addEventListener("click", ()=>{ this.hide(); })
+        this.ModalSubmitButton.addEventListener("click", ()=>{ this.submit(); })
     }
 
     show() {
@@ -22,6 +24,17 @@ class modal {
     hide() {
         this.ModalElem.style.display = "none";
         this.Spinner.SetValue(0);
+    }
+
+    submit() {
+        document.dispatchEvent(new CustomEvent("modalSubmitted", {
+            detail: {
+                id: parseInt(this.ModalItemId.innerText),
+                quantity: this.Spinner.GetValue()
+            }
+        }));
+
+        this.hide();
     }
 
     setItemName(name) {
