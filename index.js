@@ -5,7 +5,7 @@ class index {
         this.ModalButton = document.getElementById("modal-button");
 
         this.CameraButton.addEventListener("click", ()=> {});
-        this.ModalButton.addEventListener("click", ()=> { this.app.showModal(); });
+        this.ModalButton.addEventListener("click", ()=> { this.app.lana(1); });
     }
 
 
