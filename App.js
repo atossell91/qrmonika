@@ -37,6 +37,24 @@ class App {
         this.RmsEndpoint.SendPOST("/addTransaction", data);
     }
 
+    lana(itemId) {
+        let name = "";
+        this.RmsEndpoint.SendGET("/getItemData", { 
+            ItemID: itemId,
+            OwnerID: 1,
+            LocationID: 1
+        })
+        .then((response)=> response.json())
+        .then((object)=>{
+            name = object["name"];
+            const quantity = object["quantity"];
+            this.modal.setItemId(itemId);
+            this.modal.setItemName(name);
+            this.modal.setItemQuantity(quantity)
+            this.modal.show();
+        });
+    }
+
     onScanSuccess = (value) => {
         if (!this.canScan) return;
         this.canScan = false;
@@ -44,17 +62,7 @@ class App {
         const object = JSON.parse(value);
         const id = object["Item ID"];
 
-        console.log("SCANNED! ID is " + id);
-
-        let name = "";
-        this.RmsEndpoint.SendGET("/getItemInfo", { ItemID: id })
-        .then((response)=> response.json())
-        .then((object)=>{
-            name = object["name"];
-            this.modal.setItemId(id);
-            this.modal.setItemName(name);
-            this.modal.show();
-        });
+        this.lana(id);
 
         setTimeout(()=>{ this.canScan = true; }, this.scanTimeout)
     }
