@@ -38,6 +38,7 @@ class RemoteEndpoint {
     SendGET(EndpointPath, Data) {
         let url = this.buildUrl(EndpointPath);
         let params = this.objectToURLParams(Data);
+        console.log(params);
         if (params !== "") {
             url = url + "?" + params;
         }
